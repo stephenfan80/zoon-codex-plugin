@@ -1,0 +1,13 @@
+{
+  "name": "zoon-codex-plugin",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Codex plugin marketplace package for Zoon collaborative documents.",
+  "scripts": {
+    "sync": "node scripts/sync-from-zoon.mjs",
+    "validate": "node scripts/validate.mjs",
+    "test": "npm run validate"
+  },
+  "license": "MIT"
+}

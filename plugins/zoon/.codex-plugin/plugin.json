@@ -1,0 +1,48 @@
+{
+  "name": "zoon",
+  "version": "0.1.0",
+  "description": "Agent-native collaborative documents for Codex. Read and write Zoon markdown docs over plain HTTP, with AI-authored text visible in the document.",
+  "author": {
+    "name": "Stephen Fan",
+    "url": "https://github.com/stephenfan80"
+  },
+  "homepage": "https://zoon.up.railway.app/",
+  "repository": "https://github.com/stephenfan80/zoon-codex-plugin",
+  "license": "MIT",
+  "keywords": [
+    "zoon",
+    "collaborative-docs",
+    "agent-docs",
+    "markdown",
+    "ai-writing",
+    "document-collaboration"
+  ],
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "Zoon",
+    "shortDescription": "Write long Codex output into collaborative Zoon docs",
+    "longDescription": "Zoon lets Codex collaborate in online markdown documents over plain HTTP. Use it when a user shares a Zoon URL, asks to push a plan/spec/article into Zoon, or wants long structured output in an editable collaborative document instead of chat.",
+    "developerName": "Stephen Fan",
+    "category": "Productivity",
+    "capabilities": [
+      "Interactive",
+      "Read",
+      "Write"
+    ],
+    "websiteURL": "https://zoon.up.railway.app/",
+    "privacyPolicyURL": "https://zoon.up.railway.app/privacy",
+    "termsOfServiceURL": "https://zoon.up.railway.app/terms",
+    "defaultPrompt": [
+      "Write this plan into a new Zoon doc",
+      "Collaborate on this Zoon document",
+      "Push long structured output to Zoon"
+    ],
+    "brandColor": "#6D5EF6",
+    "composerIcon": "./assets/composer-icon.png",
+    "logo": "./assets/logo.png",
+    "screenshots": [
+      "./assets/screenshot1.png",
+      "./assets/screenshot2.png"
+    ]
+  }
+}

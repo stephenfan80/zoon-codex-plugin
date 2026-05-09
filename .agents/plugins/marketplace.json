@@ -1,0 +1,20 @@
+{
+  "name": "zoon",
+  "interface": {
+    "displayName": "Zoon"
+  },
+  "plugins": [
+    {
+      "name": "zoon",
+      "source": {
+        "source": "local",
+        "path": "./plugins/zoon"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_USE"
+      },
+      "category": "Productivity"
+    }
+  ]
+}
