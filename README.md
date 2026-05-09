@@ -1,5 +1,8 @@
 # Zoon Codex Plugin
 
+Codex plugin for Zoon collaborative documents, agent-native markdown editing,
+AI writing workflows, and long-form plan/spec/article collaboration.
+
 Zoon is an online markdown document space where humans and agents write together.
 This Codex plugin teaches Codex how to read and write Zoon documents over plain
 HTTP, without browser automation or a custom SDK.
@@ -8,7 +11,29 @@ Use it when you want Codex to push long plans, specs, articles, design docs, or
 multi-section analyses into an editable collaborative document instead of
 leaving everything in chat.
 
-## Install
+## Install In Codex
+
+Add this public marketplace package:
+
+```bash
+codex plugin marketplace add stephenfan80/zoon-codex-plugin
+```
+
+Then enable `Zoon` in Codex's Plugins list and start a new Codex session.
+Once enabled, Codex can discover Zoon from prompts like:
+
+- `把这个方案推到 Zoon`
+- `Write this plan into a new Zoon doc`
+- `Collaborate on this Zoon document`
+- `/zoon`
+
+You can also paste a Zoon document URL directly:
+
+```text
+https://zoon.up.railway.app/d/<slug>?token=<token>
+```
+
+## Package Layout
 
 This repository is structured as a Codex plugin marketplace package:
 
@@ -19,8 +44,8 @@ plugins/zoon/skills/zoon/SKILL.md
 ```
 
 When Codex public marketplace submission is available, submit this repository as
-the source for the `zoon` plugin. For local testing, add this repository as a
-local marketplace and install the `zoon` plugin from it.
+the source for the `zoon` plugin. Until then, the marketplace command above is
+the public install path.
 
 ## Trigger Examples
 
