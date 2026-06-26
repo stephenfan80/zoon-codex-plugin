@@ -22,6 +22,7 @@ assert(plugin.skills === './skills/', 'plugin must expose bundled skills');
 assert(plugin.interface?.displayName === 'Zoon', 'displayName must be Zoon');
 assert(plugin.interface?.category === 'Productivity', 'plugin category must be Productivity');
 assert(plugin.interface?.capabilities?.includes('Read'), 'plugin must include Read capability');
+assert(plugin.interface?.capabilities?.includes('Open'), 'plugin must include Open capability');
 assert(plugin.interface?.capabilities?.includes('Write'), 'plugin must include Write capability');
 assert(plugin.interface?.defaultPrompt?.length <= 3, 'defaultPrompt must include at most 3 items');
 
@@ -51,6 +52,9 @@ assert(entry.category === 'Productivity', 'marketplace category must be Producti
 
 const rootSkill = readFileSync(path.join(root, 'SKILL.md'), 'utf8');
 const pluginSkill = readFileSync(path.join(root, 'plugins/zoon/skills/zoon/SKILL.md'), 'utf8');
+const openDocSkillPath = path.join(root, 'plugins/zoon/skills/zoon-open-doc/SKILL.md');
+assert(existsSync(openDocSkillPath), 'zoon-open-doc skill must be bundled');
+const openDocSkill = readFileSync(openDocSkillPath, 'utf8');
 assert(rootSkill === pluginSkill, 'root SKILL.md and bundled skill must match');
 
 const sourceRoot = process.env.ZOON_SOURCE_ROOT;
@@ -63,6 +67,11 @@ if (sourceRoot) {
 
 assert(/推到 Zoon|write into Zoon|Zoon document URL/i.test(pluginSkill), 'skill must include Zoon trigger language');
 assert(/Shortcut Trigger:\s*`\/zoon`/.test(pluginSkill), 'skill must document the /zoon shortcut');
-assert(/Do not automate the browser UI/.test(pluginSkill), 'skill must avoid browser automation');
+assert(/Do not automate the editor DOM/.test(pluginSkill), 'skill must keep mutations off browser DOM');
+assert(/zoon-open-doc/.test(pluginSkill), 'skill must mention the browser-open handoff skill');
+assert(/name:\s*zoon-open-doc/.test(openDocSkill), 'open-doc skill must have the expected name');
+assert(/Codex Browser/.test(openDocSkill), 'open-doc skill must target Codex Browser');
+assert(/tab\.goto\(url\)/.test(openDocSkill), 'open-doc skill must document browser navigation');
+assert(/Do not use browser DOM\s+automation to mutate document content/.test(openDocSkill), 'open-doc skill must forbid DOM mutation writes');
 
 console.log('Zoon Codex plugin validation passed');
