@@ -4,8 +4,8 @@ Codex plugin for Zoon collaborative documents, agent-native markdown editing,
 AI writing workflows, and long-form plan/spec/article collaboration.
 
 Zoon is an online markdown document space where humans and agents write together.
-This Codex plugin teaches Codex how to read and write Zoon documents over plain
-HTTP, without browser automation or a custom SDK.
+This Codex plugin teaches Codex how to open Zoon documents in Codex Browser for
+visible interaction, while reading and writing document content over plain HTTP.
 
 Use it when you want Codex to push long plans, specs, articles, design docs, or
 multi-section analyses into an editable collaborative document instead of
@@ -22,6 +22,7 @@ codex plugin marketplace add stephenfan80/zoon-codex-plugin
 Then enable `Zoon` in Codex's Plugins list and start a new Codex session.
 Once enabled, Codex can discover Zoon from prompts like:
 
+- `Open this Zoon document in Codex Browser`
 - `把这个方案推到 Zoon`
 - `Write this plan into a new Zoon doc`
 - `Collaborate on this Zoon document`
@@ -41,6 +42,7 @@ This repository is structured as a Codex plugin marketplace package:
 .agents/plugins/marketplace.json
 plugins/zoon/.codex-plugin/plugin.json
 plugins/zoon/skills/zoon/SKILL.md
+plugins/zoon/skills/zoon-open-doc/SKILL.md
 ```
 
 When Codex public marketplace submission is available, submit this repository as
@@ -104,5 +106,6 @@ https://zoon.up.railway.app/skill
 - Codex plugin manifest with public-marketplace metadata.
 - Marketplace entry for `zoon` with `ON_USE` authentication.
 - Zoon skill with URL triggers, `/zoon` session mode, read/write routes, comments, suggestions, and event handling.
+- Zoon open-doc skill for opening tokenized document URLs in Codex Browser while keeping mutations on HTTP.
 - PNG icon and screenshots for marketplace presentation.
 - Validation script and GitHub Actions workflow.

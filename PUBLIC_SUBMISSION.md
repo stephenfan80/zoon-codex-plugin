@@ -6,20 +6,22 @@
 - Category: Productivity
 - Repository: https://github.com/stephenfan80/zoon-codex-plugin
 - Website: https://zoon.up.railway.app/
-- One-line description: Write long Codex output into collaborative Zoon docs.
+- One-line description: Open and write collaborative Zoon docs from Codex.
 
 ## Short Description
 
-Zoon lets Codex read and write online markdown documents over plain HTTP, with
-AI-authored text visible and attributable inside the document.
+Zoon lets Codex open online markdown documents in Codex Browser, then read and
+write over plain HTTP with AI-authored text visible and attributable inside the
+document.
 
 ## Long Description
 
 Zoon is an agent-native collaborative markdown document space. Use the plugin
-when a user shares a Zoon URL, asks to push a plan/spec/article into Zoon, or
-wants long structured output in an editable collaborative document instead of
-chat. No browser automation or SDK is required; Codex follows the bundled skill
-and uses the document token shared by the user.
+when a user shares a Zoon URL, asks to view the document in Codex Browser, asks
+to push a plan/spec/article into Zoon, or wants long structured output in an
+editable collaborative document instead of chat. Browser opening is for visible
+interaction; document mutations use Zoon HTTP routes and the document token
+shared by the user.
 
 ## Keywords
 
@@ -36,6 +38,7 @@ Then enable `Zoon` in Codex's Plugins list and start a new session.
 
 ## Trigger Examples
 
+- `Open this Zoon document in Codex Browser`
 - `把这个方案推到 Zoon`
 - `Write this plan into a new Zoon doc`
 - `Collaborate on this Zoon document`
