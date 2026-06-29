@@ -66,11 +66,13 @@ if (sourceRoot) {
 }
 
 assert(/推到 Zoon|write into Zoon|Zoon document URL/i.test(pluginSkill), 'skill must include Zoon trigger language');
+assert(/agent-generated Markdown draft|collaborative Zoon document/i.test(pluginSkill), 'skill must position Zoon as the agent Markdown collaboration layer');
 assert(/Shortcut Trigger:\s*`\/zoon`/.test(pluginSkill), 'skill must document the /zoon shortcut');
 assert(/Do not automate the editor DOM/.test(pluginSkill), 'skill must keep mutations off browser DOM');
 assert(/zoon-open-doc/.test(pluginSkill), 'skill must mention the browser-open handoff skill');
 assert(/name:\s*zoon-open-doc/.test(openDocSkill), 'open-doc skill must have the expected name');
 assert(/Codex Browser/.test(openDocSkill), 'open-doc skill must target Codex Browser');
+assert(/document workspace/.test(openDocSkill), 'open-doc skill must frame opening as a document workspace');
 assert(/tab\.goto\(url\)/.test(openDocSkill), 'open-doc skill must document browser navigation');
 assert(/Do not use browser DOM\s+automation to mutate document content/.test(openDocSkill), 'open-doc skill must forbid DOM mutation writes');
 

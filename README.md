@@ -1,15 +1,15 @@
 # Zoon Codex Plugin
 
-Codex plugin for Zoon collaborative documents, agent-native markdown editing,
-AI writing workflows, and long-form plan/spec/article collaboration.
+Codex plugin for turning agent-generated Markdown into collaborative Zoon
+documents inside the Codex workbench.
 
-Zoon is an online markdown document space where humans and agents write together.
-This Codex plugin teaches Codex how to open Zoon documents in Codex Browser for
-visible interaction, while reading and writing document content over plain HTTP.
+Zoon is a document collaboration layer for long-form agent work. It gives Codex
+a shared document workspace where plans, specs, articles, PRDs, reports, and
+multi-section analyses can keep evolving after the first chat draft.
 
-Use it when you want Codex to push long plans, specs, articles, design docs, or
-multi-section analyses into an editable collaborative document instead of
-leaving everything in chat.
+Use it when you want Codex to move a long Markdown answer out of chat and into a
+document where the user can review, select, comment, request changes, and keep
+the next revision in the same artifact.
 
 ## Install In Codex
 
@@ -22,10 +22,11 @@ codex plugin marketplace add stephenfan80/zoon-codex-plugin
 Then enable `Zoon` in Codex's Plugins list and start a new Codex session.
 Once enabled, Codex can discover Zoon from prompts like:
 
-- `Open this Zoon document in Codex Browser`
-- `把这个方案推到 Zoon`
+- `Continue this draft in Zoon`
+- `用 Zoon 继续改这份方案`
 - `Write this plan into a new Zoon doc`
-- `Collaborate on this Zoon document`
+- `Turn this Markdown into a collaborative document`
+- `Open this Zoon document workspace`
 - `/zoon`
 
 You can also paste a Zoon document URL directly:
@@ -54,9 +55,9 @@ the public install path.
 Codex should use Zoon when you:
 
 - Share a Zoon document URL like `https://zoon.up.railway.app/d/<slug>?token=<token>`.
-- Say "write this into Zoon", "push this plan to Zoon", or "collaborate in this online doc".
-- Ask for long structured output such as a plan, spec, design doc, article, or multi-section analysis.
-- Send `/zoon` as a standalone message to make future plan-grade output go to Zoon by default.
+- Say "continue this in Zoon", "push this plan to Zoon", or "turn this Markdown into a collaborative document".
+- Ask to keep editing a plan, spec, PRD, report, article, or multi-section analysis after the first draft.
+- Send `/zoon` as a standalone message to make future plan-grade Markdown output go to Zoon by default.
 
 Short answers, quick diagnostics, brief clarifications, and small code snippets
 should stay in chat unless you explicitly ask for Zoon.
@@ -105,7 +106,7 @@ https://zoon.up.railway.app/skill
 
 - Codex plugin manifest with public-marketplace metadata.
 - Marketplace entry for `zoon` with `ON_USE` authentication.
-- Zoon skill with URL triggers, `/zoon` session mode, read/write routes, comments, suggestions, and event handling.
-- Zoon open-doc skill for opening tokenized document URLs in Codex Browser while keeping mutations on HTTP.
+- Zoon skill with document-workspace triggers, `/zoon` session mode, read/write routes, comments, suggestions, and event handling.
+- Zoon open-doc skill for opening tokenized Zoon document workspaces in Codex Browser while keeping mutations on HTTP.
 - PNG icon and screenshots for marketplace presentation.
 - Validation script and GitHub Actions workflow.

@@ -6,22 +6,20 @@
 - Category: Productivity
 - Repository: https://github.com/stephenfan80/zoon-codex-plugin
 - Website: https://zoon.up.railway.app/
-- One-line description: Open and write collaborative Zoon docs from Codex.
+- One-line description: Turn Codex Markdown drafts into collaborative Zoon documents.
 
 ## Short Description
 
-Zoon lets Codex open online markdown documents in Codex Browser, then read and
-write over plain HTTP with AI-authored text visible and attributable inside the
-document.
+Zoon lets Codex turn long Markdown answers into collaborative documents that can
+be reviewed, commented on, revised, and kept as the shared artifact.
 
 ## Long Description
 
-Zoon is an agent-native collaborative markdown document space. Use the plugin
-when a user shares a Zoon URL, asks to view the document in Codex Browser, asks
-to push a plan/spec/article into Zoon, or wants long structured output in an
-editable collaborative document instead of chat. Browser opening is for visible
-interaction; document mutations use Zoon HTTP routes and the document token
-shared by the user.
+Zoon is an agent-native collaborative markdown document workspace. Use the
+plugin when a user wants a Codex-generated plan, spec, PRD, report, article, or
+multi-section analysis to keep evolving as a document instead of staying trapped
+in chat. The Codex Browser opens the visible document workspace; document
+updates use Zoon's agent protocol and the document token shared by the user.
 
 ## Keywords
 
@@ -38,10 +36,11 @@ Then enable `Zoon` in Codex's Plugins list and start a new session.
 
 ## Trigger Examples
 
-- `Open this Zoon document in Codex Browser`
-- `把这个方案推到 Zoon`
+- `Continue this draft in Zoon`
+- `用 Zoon 继续改这份方案`
 - `Write this plan into a new Zoon doc`
-- `Collaborate on this Zoon document`
+- `Turn this Markdown into a collaborative document`
+- `Open this Zoon document workspace`
 - `/zoon`
 - `https://zoon.up.railway.app/d/<slug>?token=<token>`
 
@@ -55,5 +54,5 @@ specific task.
 
 - `npm test`
 - GitHub Actions workflow: `validate`
-- Live smoke test: create document, read state, append via `/edit/v2`, add
-  comment via `/ops`
+- Live smoke test: create a document, open it in the Codex workbench, add
+  in-document feedback, and verify Codex updates the same document

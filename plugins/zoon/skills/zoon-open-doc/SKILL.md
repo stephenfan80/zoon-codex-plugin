@@ -1,13 +1,14 @@
 ---
 name: zoon-open-doc
-description: Open a Zoon document URL in the Codex in-app browser. Use when the user shares a Zoon URL, asks to view or interact with a Zoon doc in Codex, or the Zoon skill creates a tokenized document URL.
+description: Open a Zoon document workspace in the Codex in-app browser. Use when the user wants to continue editing a Zoon document in Codex, shares a Zoon URL, or the Zoon skill creates a tokenized document URL.
 ---
 
 # Zoon Open Doc
 
-Open the Zoon document in the Codex Browser for visible human interaction.
+Open the Zoon document workspace in the Codex Browser for visible review,
+selection, comments, and human interaction.
 
-This skill is for opening and viewing the editor. Do not use browser DOM
+This skill is for opening the document workspace. Do not use browser DOM
 automation to mutate document content. Reads, writes, comments, suggestions, and
 presence still belong on the Zoon HTTP routes documented by the `zoon` skill.
 
@@ -20,9 +21,10 @@ Use the tokenized Zoon document URL provided by the user or returned as
 https://<host>/d/<slug>?token=<token>
 ```
 
-If the URL is missing, ask the user for a Zoon document URL. If the URL is a
-clean `/d/<slug>` link without `?token=`, open it for viewing only and do not
-claim agent write access.
+If the URL is missing, ask the user for a Zoon document URL or create one from
+the current Markdown artifact through the `zoon` skill. If the URL is a clean
+`/d/<slug>` link without `?token=`, open it for viewing only and do not claim
+agent write access.
 
 ## Workflow
 
@@ -69,8 +71,9 @@ if ((await tab.url()) !== url) {
 }
 ```
 
-4. After opening, continue all document operations through HTTP. For example,
-send presence with `POST /documents/:slug/presence`, read state with
+4. After opening, treat this Zoon document as the active artifact. Keep visible
+review in the browser, and continue all document operations through HTTP. For
+example, send presence with `POST /documents/:slug/presence`, read state with
 `GET /documents/:slug/state`, and write with `POST /documents/:slug/edit/v2`.
 
 ## Fallback
